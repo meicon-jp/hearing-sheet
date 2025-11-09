@@ -3,163 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webサイト制作ヒアリングシート</title>
+    <title>Webサイト制作ヒアリングシート（黒基調 完全版）</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif;
-            background: #f5f7fa;
+            background: #121212;
+            color: #e0e0e0;
             padding: 20px;
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
+            background: #1e1e1e;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.6);
             overflow: hidden;
         }
-        
+
         .header {
-            background: #203744;
-            color: white;
+            background: #000;
+            color: #fff;
             padding: 30px;
             text-align: center;
         }
-        
+
         .header h1 {
             font-size: 28px;
             margin-bottom: 10px;
         }
-        
+
         .header p {
             font-size: 14px;
-            opacity: 0.9;
+            opacity: 0.85;
         }
-        
+
         .legend {
             padding: 20px 30px;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
+            background: #1b1b1b;
+            border-bottom: 1px solid #333;
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
-        
+
         .legend-item {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 14px;
         }
-        
+
         .legend-badge {
             padding: 4px 12px;
             border-radius: 4px;
             font-weight: 600;
             font-size: 12px;
         }
-        
+
         .required {
-            background: #fee;
-            color: #c00;
+            background: #330000;
+            color: #ff6b6b;
         }
-        
+
         .optional {
-            background: #e3f2fd;
-            color: #1976d2;
+            background: #002b4f;
+            color: #4f7eff;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        
+
         thead {
-            background: #495057;
-            color: white;
+            background: #2a2a2a;
+            color: #fff;
         }
-        
+
         th {
             padding: 15px;
             text-align: left;
             font-weight: 600;
             font-size: 14px;
+            border-bottom: 1px solid #333;
         }
-        
-        th:first-child {
-            width: 35%;
-        }
-        
-        th:last-child {
-            width: 15%;
-        }
-        
+
+        th:first-child { width: 35%; }
+        th:last-child { width: 15%; }
+
         tbody tr {
-            border-bottom: 1px solid #dee2e6;
+            border-bottom: 1px solid #333;
         }
-        
+
         tbody tr:hover {
-            background: #f8f9fa;
+            background: #181818;
         }
-        
+
         td {
             padding: 15px;
             vertical-align: top;
         }
-        
+
         .category-row {
-            background: #e9ecef;
+            background: #252525;
             font-weight: 600;
             font-size: 16px;
         }
-        
-        .category-row td {
-            padding: 12px 15px;
-            color: #495057;
-        }
-        
+
         .question {
             font-size: 14px;
-            color: #212529;
+            color: #fff;
         }
-        
+
         .description {
             font-size: 13px;
-            color: #6c757d;
+            color: #aaa;
             margin-top: 4px;
         }
-        
+
         input[type="text"],
         textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ced4da;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            border: 1px solid #333;
             border-radius: 4px;
             font-size: 14px;
             font-family: inherit;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
-        
+
         input[type="text"]:focus,
         textarea:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #4f7eff;
+            box-shadow: 0 0 0 3px rgba(79,126,255,0.15);
         }
-        
+
         textarea {
             min-height: 80px;
             resize: vertical;
         }
-        
+
         .status-badge {
             display: inline-block;
             padding: 4px 10px;
@@ -167,16 +161,16 @@
             font-size: 12px;
             font-weight: 600;
         }
-        
+
         .footer {
             padding: 30px;
             text-align: center;
-            background: #f8f9fa;
-            border-top: 1px solid #dee2e6;
+            background: #1b1b1b;
+            border-top: 1px solid #333;
         }
-        
+
         .export-btn {
-            background: #667eea;
+            background: linear-gradient(135deg, #4f7eff, #334bcc);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -184,26 +178,17 @@
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: 0.2s;
         }
-        
+
         .export-btn:hover {
-            background: #5568d3;
+            background: linear-gradient(135deg, #678bff, #4f7eff);
         }
-        
+
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-            }
-            
-            .export-btn {
-                display: none;
-            }
+            body { background: white; color: black; padding: 0; }
+            .container { box-shadow: none; }
+            .export-btn { display: none; }
         }
     </style>
 </head>
@@ -211,9 +196,9 @@
     <div class="container">
         <div class="header">
             <h1>Webサイト制作ヒアリングシート</h1>
-            <p>各項目にご記入ください。入力内容は自動保存されます。</p>
+            <p>すべての項目にご記入ください（自動保存されます）</p>
         </div>
-        
+
         <div class="legend">
             <div class="legend-item">
                 <span class="legend-badge required">必須</span>
@@ -224,7 +209,7 @@
                 <span>可能な範囲でご記入ください</span>
             </div>
         </div>
-        
+
         <table>
             <thead>
                 <tr>
@@ -233,246 +218,123 @@
                     <th>必須/任意</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- 基本情報 -->
-                <tr class="category-row">
-                    <td colspan="3">📋 基本情報</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">会社名・事業内容・所在地</div>
-                        <div class="description">正式な会社名、主な事業内容、本社所在地をご記入ください</div>
-                    </td>
-                    <td><textarea id="basic-1" placeholder="例：株式会社〇〇&#10;事業内容：△△&#10;所在地：〒xxx-xxxx 東京都..."></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">設立年・資本金</div>
-                        <div class="description">会社の設立年と資本金をご記入ください</div>
-                    </td>
-                    <td><input type="text" id="basic-2" placeholder="例：2010年設立、資本金1000万円"></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">経営理念・ビジョン・企業文化</div>
-                        <div class="description">貴社の経営理念、目指すビジョン、大切にしている企業文化をご記入ください</div>
-                    </td>
-                    <td><textarea id="basic-3" placeholder="経営理念やビジョンをご記入ください"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                
-                <!-- 目的とターゲット -->
-                <tr class="category-row">
-                    <td colspan="3">🎯 目的とターゲット</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">ホームページの主な目的</div>
-                        <div class="description">集客、採用、ブランディング、情報提供など</div>
-                    </td>
-                    <td><textarea id="target-1" placeholder="例：新規顧客の獲得、採用強化、企業イメージの向上"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">訪問者に取ってもらいたいアクション</div>
-                        <div class="description">問い合わせ、資料請求、応募など、具体的な行動目標</div>
-                    </td>
-                    <td><textarea id="target-2" placeholder="例：お問い合わせフォームからの連絡、資料ダウンロード"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">ターゲットとなる訪問者</div>
-                        <div class="description">既存顧客、見込み客、求職者、取引先など</div>
-                    </td>
-                    <td><textarea id="target-3" placeholder="例：30〜50代の経営者、新卒・中途採用希望者"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                
-                <!-- コンテンツ -->
-                <tr class="category-row">
-                    <td colspan="3">📝 コンテンツ</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">必要なページ構成</div>
-                        <div class="description">トップ、会社概要、事業内容、サービス、実績、採用情報、お問い合わせなど</div>
-                    </td>
-                    <td><textarea id="content-1" placeholder="例：トップページ、会社概要、サービス紹介、事例紹介、採用情報、お問い合わせ"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">掲載したい情報・強調したいポイント</div>
-                        <div class="description">特にアピールしたい内容や強み</div>
-                    </td>
-                    <td><textarea id="content-2" placeholder="例：業界No.1の実績、独自の技術、お客様の声"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">既存素材の有無</div>
-                        <div class="description">文章素材、写真、ロゴデータなど、既にお持ちの素材</div>
-                    </td>
-                    <td><textarea id="content-3" placeholder="例：ロゴデータ（AI形式）あり、会社紹介文あり、写真は撮影必要"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                
-                <!-- デザイン・雰囲気 -->
-                <tr class="category-row">
-                    <td colspan="3">🎨 デザイン・雰囲気</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">好みのデザインテイスト</div>
-                        <div class="description">シンプル、モダン、伝統的、親しみやすいなど</div>
-                    </td>
-                    <td><textarea id="design-1" placeholder="例：シンプルでモダン、信頼感のある落ち着いたデザイン"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">コーポレートカラー等の有無</div>
-                        <div class="description">既存のブランドカラーやカラーコードがあればご記入ください</div>
-                    </td>
-                    <td><input type="text" id="design-2" placeholder="例：青系（#0066CC）、白とグレーを基調"></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">参考にしたいサイト</div>
-                        <div class="description">競合他社や他業種で参考にしたいサイトのURL</div>
-                    </td>
-                    <td><textarea id="design-3" placeholder="例：https://example.com（デザインが好み）&#10;https://example2.com（構成が参考になる）"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                
-                <!-- 機能要件 -->
-                <tr class="category-row">
-                    <td colspan="3">⚙️ 機能要件</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">お問い合わせフォームの必要性</div>
-                        <div class="description">必要な場合は、どのような項目が必要かご記入ください</div>
-                    </td>
-                    <td><textarea id="function-1" placeholder="例：必要。項目：お名前、会社名、メールアドレス、電話番号、お問い合わせ内容"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">ブログ・ニュース更新機能の必要性</div>
-                        <div class="description">自社で更新できる機能が必要かどうか</div>
-                    </td>
-                    <td><textarea id="function-2" placeholder="例：必要。月1〜2回程度、新着情報を更新したい"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                
-                <!-- スケジュール・予算 -->
-                <tr class="category-row">
-                    <td colspan="3">📅 スケジュール・予算</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">公開希望時期</div>
-                        <div class="description">いつまでに公開したいか、希望時期をご記入ください</div>
-                    </td>
-                    <td><input type="text" id="schedule-1" placeholder="例：2025年12月末までに公開希望"></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">予算</div>
-                        <div class="description">ご予算の目安をご記入ください</div>
-                    </td>
-                    <td><input type="text" id="budget-1" placeholder="例：50〜100万円程度"></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-            </tbody>
+            <tbody id="sheet-body"></tbody>
         </table>
-        
+
         <div class="footer">
             <button class="export-btn" onclick="exportData()">📥 入力内容をダウンロード</button>
-            <p style="margin-top: 15px; font-size: 14px; color: #6c757d;">入力内容はブラウザに自動保存されます</p>
+            <p style="margin-top: 15px; font-size: 14px; color: #aaa;">入力内容はブラウザに自動保存されます</p>
         </div>
     </div>
-    
+
     <script>
-        const fields = [
-            'basic-1', 'basic-2', 'basic-3',
-            'target-1', 'target-2', 'target-3',
-            'content-1', 'content-2', 'content-3',
-            'design-1', 'design-2', 'design-3',
-            'function-1', 'function-2',
-            'schedule-1', 'budget-1'
-        ];
-        
-        // Load saved data
-        fields.forEach(id => {
-            const element = document.getElementById(id);
-            const saved = localStorage.getItem(id);
-            if (saved) {
-                element.value = saved;
-            }
-            
-            // Auto-save on input
-            element.addEventListener('input', () => {
-                localStorage.setItem(id, element.value);
+        const sections = {
+            "基本情報": [
+                ["会社名", "text", true],
+                ["所在地", "text", true],
+                ["設立年月", "text", true],
+                ["資本金", "text", true],
+                ["事業内容", "textarea", true],
+                ["代表者名", "text", false],
+                ["担当者名・連絡先", "textarea", true],
+                ["公式サイトURL", "text", false],
+                ["SNSアカウント", "textarea", false]
+            ],
+            "目的とターゲット": [
+                ["制作の目的", "textarea", true],
+                ["現在の課題・悩み", "textarea", true],
+                ["成功の基準（成果指標）", "textarea", false],
+                ["ターゲット層", "textarea", true],
+                ["訪問者に取ってもらいたい行動（CTA）", "textarea", true]
+            ],
+            "コンテンツ": [
+                ["必要なページ一覧", "textarea", true],
+                ["各ページに掲載したい内容", "textarea", true],
+                ["強調したいポイント", "textarea", true],
+                ["使用予定の素材", "textarea", false],
+                ["素材の状態", "text", false],
+                ["原稿ライティング方法", "text", false]
+            ],
+            "デザイン・雰囲気": [
+                ["希望のテイスト", "textarea", true],
+                ["使用したいカラー・ブランドカラー", "text", false],
+                ["使用NGなカラー・要素", "text", false],
+                ["参考にしたいサイトURL", "textarea", false],
+                ["使用したいフォント・写真イメージ", "textarea", false],
+                ["レイアウト希望（1カラム・2カラムなど）", "text", false]
+            ],
+            "機能要件": [
+                ["お問い合わせフォーム", "textarea", true],
+                ["ブログ・ニュース機能", "textarea", false],
+                ["SNS連携", "textarea", false],
+                ["多言語対応", "text", false],
+                ["SEO対策（希望キーワード等）", "textarea", false],
+                ["アクセス解析導入", "text", false]
+            ],
+            "スケジュール・予算": [
+                ["制作開始希望時期", "text", true],
+                ["公開希望時期", "text", true],
+                ["予算の目安", "text", true],
+                ["優先度（スピード／品質）", "text", false],
+                ["継続運用・保守希望", "textarea", false]
+            ]
+        };
+
+        const tbody = document.getElementById('sheet-body');
+        const fields = [];
+
+        for (const [section, items] of Object.entries(sections)) {
+            const catRow = document.createElement('tr');
+            catRow.className = 'category-row';
+            catRow.innerHTML = `<td colspan="3">■ ${section}</td>`;
+            tbody.appendChild(catRow);
+
+            items.forEach(([label, type, required]) => {
+                const id = `${section}-${label}`.replace(/[^a-zA-Z0-9]/g, '_');
+                fields.push(id);
+
+                const input = type === 'textarea'
+                    ? `<textarea id="${id}" placeholder="${label}を入力してください"></textarea>`
+                    : `<input type="text" id="${id}" placeholder="${label}を入力してください">`;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><div class="question">${label}</div></td>
+                    <td>${input}</td>
+                    <td><span class="status-badge ${required ? 'required' : 'optional'}">${required ? '必須' : '任意'}</span></td>
+                `;
+                tbody.appendChild(row);
             });
+        }
+
+        // 自動保存
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            const saved = localStorage.getItem(id);
+            if (saved) el.value = saved;
+            el.addEventListener('input', () => localStorage.setItem(id, el.value));
         });
-        
+
+        // エクスポート
         function exportData() {
-            let output = 'Webサイト制作ヒアリングシート\n';
-            output += '=' .repeat(50) + '\n\n';
-            
-            const sections = {
-                '基本情報': ['basic-1', 'basic-2', 'basic-3'],
-                '目的とターゲット': ['target-1', 'target-2', 'target-3'],
-                'コンテンツ': ['content-1', 'content-2', 'content-3'],
-                'デザイン・雰囲気': ['design-1', 'design-2', 'design-3'],
-                '機能要件': ['function-1', 'function-2'],
-                'スケジュール・予算': ['schedule-1', 'budget-1']
-            };
-            
-            const labels = {
-                'basic-1': '会社名・事業内容・所在地',
-                'basic-2': '設立年・資本金',
-                'basic-3': '経営理念・ビジョン・企業文化',
-                'target-1': 'ホームページの主な目的',
-                'target-2': '訪問者に取ってもらいたいアクション',
-                'target-3': 'ターゲットとなる訪問者',
-                'content-1': '必要なページ構成',
-                'content-2': '掲載したい情報・強調したいポイント',
-                'content-3': '既存素材の有無',
-                'design-1': '好みのデザインテイスト',
-                'design-2': 'コーポレートカラー等の有無',
-                'design-3': '参考にしたいサイト',
-                'function-1': 'お問い合わせフォームの必要性',
-                'function-2': 'ブログ・ニュース更新機能の必要性',
-                'schedule-1': '公開希望時期',
-                'budget-1': '予算'
-            };
-            
-            for (const [section, ids] of Object.entries(sections)) {
-                output += `■ ${section}\n`;
-                output += '-'.repeat(50) + '\n';
-                
-                ids.forEach(id => {
-                    const value = document.getElementById(id).value || '（未入力）';
-                    output += `${labels[id]}:\n${value}\n\n`;
+            let output = "Webサイト制作ヒアリングシート（黒基調 完全版）\n";
+            output += "=".repeat(50) + "\n\n";
+
+            for (const [section, items] of Object.entries(sections)) {
+                output += `■ ${section}\n` + "-".repeat(50) + "\n";
+                items.forEach(([label]) => {
+                    const id = `${section}-${label}`.replace(/[^a-zA-Z0-9]/g, '_');
+                    const value = document.getElementById(id).value || "（未入力）";
+                    output += `${label}:\n${value}\n\n`;
                 });
-                
-                output += '\n';
+                output += "\n";
             }
-            
-            const blob = new Blob([output], { type: 'text/plain;charset=utf-8' });
+
+            const blob = new Blob([output], { type: "text/plain;charset=utf-8" });
             const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
+            const a = document.createElement("a");
             a.href = url;
-            a.download = `ヒアリングシート_${new Date().toISOString().split('T')[0]}.txt`;
+            a.download = `ヒアリングシート_${new Date().toISOString().split("T")[0]}.txt`;
             a.click();
             URL.revokeObjectURL(url);
         }
