@@ -1,1 +1,674 @@
-<!DOCTYPE html> <html lang="ja"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Webサイト制作ヒアリングシート</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif; background: #f5f5f5; padding: 20px; line-height: 1.6; color: #333; } .container { max-width: 1200px; margin: 0 auto; background: white; border: 1px solid #ddd; overflow: hidden; } .header { background: #000; color: white; padding: 30px; text-align: center; border-bottom: 3px solid #333; } .header h1 { font-size: 28px; margin-bottom: 10px; font-weight: 700; } .header p { font-size: 14px; opacity: 0.85; } .legend { padding: 20px 30px; background: #fafafa; border-bottom: 1px solid #ddd; display: flex; gap: 20px; flex-wrap: wrap; } .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; } .legend-badge { padding: 4px 12px; border: 1px solid #333; font-weight: 600; font-size: 12px; } .required { background: #000; color: white; } .optional { background: white; color: #333; } table { width: 100%; border-collapse: collapse; } thead { background: #333; color: white; } th { padding: 15px; text-align: left; font-weight: 600; font-size: 14px; border-right: 1px solid #555; } th:last-child { border-right: none; } th:first-child { width: 35%; } th:last-child { width: 15%; } tbody tr { border-bottom: 1px solid #ddd; } tbody tr:hover { background: #fafafa; } td { padding: 15px; vertical-align: top; border-right: 1px solid #eee; } td:last-child { border-right: none; } .category-row { background: #f5f5f5; font-weight: 700; font-size: 16px; border-top: 2px solid #333; } .category-row td { padding: 12px 15px; color: #000; } .question { font-size: 14px; color: #000; font-weight: 600; } .description { font-size: 13px; color: #666; margin-top: 4px; } input[type="text"], textarea { width: 100%; padding: 10px; border: 1px solid #ccc; font-size: 14px; font-family: inherit; transition: border-color 0.2s; background: white; } input[type="text"]:focus, textarea:focus { outline: none; border-color: #000; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); } textarea { min-height: 80px; resize: vertical; } .status-badge { display: inline-block; padding: 4px 10px; border: 1px solid #333; font-size: 12px; font-weight: 600; } .status-badge.required { background: #000; color: white; } .status-badge.optional { background: white; color: #333; } .footer { padding: 30px; text-align: center; background: #fafafa; border-top: 2px solid #ddd; } .export-btn { background: #000; color: white; border: 2px solid #000; padding: 12px 30px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; } .export-btn:hover { background: white; color: #000; } @media print { body { background: white; padding: 0; } .container { border: none; } .export-btn { display: none; } } </style> </head> <body> <div class="container"> <div class="header"> <h1>Webサイト制作ヒアリングシート</h1> <p>各項目にご記入ください。入力内容は自動保存されます。</p> </div> <div class="legend"> <div class="legend-item"> <span class="legend-badge required">必須</span> <span>必ずご記入ください</span> </div> <div class="legend-item"> <span class="legend-badge optional">任意</span> <span>可能な範囲でご記入ください</span> </div> </div> <table> <thead> <tr> <th>項目</th> <th>ご記入欄</th> <th>必須/任意</th> </tr> </thead> <tbody> <!-- 基本情報 --> <tr class="category-row"> <td colspan="3">基本情報</td> </tr> <tr> <td> <div class="question">会社名</div> <div class="description">正式な会社名をご記入ください</div> </td> <td><input type="text" id="basic-1" placeholder="例：株式会社〇〇"></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">事業内容</div> <div class="description">主な事業内容を簡潔にご記入ください</div> </td> <td><textarea id="basic-2" placeholder="例：Webサイト制作、システム開発、コンサルティング"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">所在地</div> <div class="description">本社所在地をご記入ください</div> </td> <td><input type="text" id="basic-3" placeholder="例：〒xxx-xxxx 東京都渋谷区..."></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">設立年</div> <div class="description">会社の設立年をご記入ください</div> </td> <td><input type="text" id="basic-4" placeholder="例：2010年"></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">資本金</div> <div class="description">資本金をご記入ください</div> </td> <td><input type="text" id="basic-5" placeholder="例：1000万円"></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">経営理念</div> <div class="description">貴社の経営理念をご記入ください</div> </td> <td><textarea id="basic-6" placeholder="貴社の経営理念や大切にしている価値観"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">ビジョン</div> <div class="description">目指している将来像や目標</div> </td> <td><textarea id="basic-7" placeholder="将来目指している姿や達成したい目標"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">企業文化・特徴</div> <div class="description">社風や企業文化、他社との違い</div> </td> <td><textarea id="basic-8" placeholder="社風の特徴、大切にしている文化、他社と違う点など"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <!-- 目的とターゲット --> <tr class="category-row"> <td colspan="3">目的とターゲット</td> </tr> <tr> <td> <div class="question">ホームページ制作の主な目的</div> <div class="description">集客、採用、ブランディング、情報提供など</div> </td> <td><textarea id="target-1" placeholder="例：新規顧客の獲得、企業認知度の向上"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">現在の課題</div> <div class="description">Webサイトで解決したい課題や問題点</div> </td> <td><textarea id="target-2" placeholder="例：問い合わせが少ない、採用応募がない、情報が古い"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">訪問者に取ってもらいたいアクション</div> <div class="description">具体的な行動目標（複数可）</div> </td> <td><textarea id="target-3" placeholder="例：お問い合わせフォームからの連絡、資料ダウンロード、応募"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">メインターゲット層</div> <div class="description">最も重要な訪問者層</div> </td> <td><textarea id="target-4" placeholder="例：30〜50代の経営者、企業の担当者"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">その他のターゲット層</div> <div class="description">副次的なターゲット層（既存顧客、求職者など）</div> </td> <td><textarea id="target-5" placeholder="例：新卒・中途採用希望者、既存顧客"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <!-- コンテンツ --> <tr class="category-row"> <td colspan="3">コンテンツ</td> </tr> <tr> <td> <div class="question">必要なページ（基本ページ）</div> <div class="description">トップページ、会社概要など</div> </td> <td><textarea id="content-1" placeholder="例：トップページ、会社概要、代表挨拶"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">必要なページ（事業・サービス）</div> <div class="description">事業内容、サービス紹介など</div> </td> <td><textarea id="content-2" placeholder="例：事業内容、サービス一覧、サービス詳細ページ"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">必要なページ（実績・事例）</div> <div class="description">実績紹介、導入事例など</div> </td> <td><textarea id="content-3" placeholder="例：導入事例、実績一覧、お客様の声"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">必要なページ（その他）</div> <div class="description">採用情報、ニュース、お問い合わせなど</div> </td> <td><textarea id="content-4" placeholder="例：採用情報、お知らせ、お問い合わせ、プライバシーポリシー"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">特に強調したいポイント</div> <div class="description">最もアピールしたい内容や強み</div> </td> <td><textarea id="content-5" placeholder="例：業界No.1の実績、独自の技術力、顧客満足度"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">掲載したい実績・数字</div> <div class="description">具体的な数字やデータ</div> </td> <td><textarea id="content-6" placeholder="例：取引社数300社以上、顧客満足度95%、導入実績500件"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">既存の文章素材</div> <div class="description">会社案内、パンフレット等の既存文章</div> </td> <td><textarea id="content-7" placeholder="例：会社案内あり、サービス紹介文あり、新規作成必要"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">写真・画像素材</div> <div class="description">オフィス、社員、商品等の写真の有無</div> </td> <td><textarea id="content-8" placeholder="例：オフィス写真あり、社員写真は撮影必要"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">ロゴデータ</div> <div class="description">ロゴの有無とデータ形式</div> </td> <td><input type="text" id="content-9" placeholder="例：AI形式で保有、PNG形式のみ、ロゴなし"></td> <td><span class="status-badge optional">任意</span></td> </tr> <!-- デザイン・雰囲気 --> <tr class="category-row"> <td colspan="3">デザイン・雰囲気</td> </tr> <tr> <td> <div class="question">デザインの方向性</div> <div class="description">全体的な印象や雰囲気</div> </td> <td><textarea id="design-1" placeholder="例：シンプルでモダン、信頼感がある、先進的、親しみやすい"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">デザインのテイスト</div> <div class="description">具体的なスタイル</div> </td> <td><textarea id="design-2" placeholder="例：ミニマル、コーポレート、カジュアル、高級感"></textarea></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">避けたいデザイン</div> <div class="description">避けたい印象やスタイル</div> </td> <td><textarea id="design-3" placeholder="例：派手すぎる、古臭い、堅苦しすぎる"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">コーポレートカラー</div> <div class="description">既存のブランドカラー（カラーコード）</div> </td> <td><input type="text" id="design-4" placeholder="例：青系（#0066CC）、赤（#CC0000）"></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">使用したい色</div> <div class="description">メインカラー、サブカラーの希望</div> </td> <td><textarea id="design-5" placeholder="例：メイン：青、サブ：白とグレー"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">参考サイト（好みのデザイン）</div> <div class="description">デザインが気に入っているサイト</div> </td> <td><textarea id="design-6" placeholder="URL：&#10;好きなポイント："></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">参考サイト（競合他社）</div> <div class="description">競合サイトで参考になるもの</div> </td> <td><textarea id="design-7" placeholder="URL：&#10;参考にしたいポイント："></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">参考サイト（他業種）</div> <div class="description">他業種で参考になるサイト</div> </td> <td><textarea id="design-8" placeholder="URL：&#10;参考にしたいポイント："></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <!-- 機能要件 --> <tr class="category-row"> <td colspan="3">機能要件</td> </tr> <tr> <td> <div class="question">お問い合わせフォームの必要性</div> <div class="description">必要・不要をご記入ください</div> </td> <td><input type="text" id="function-1" placeholder="例：必要 / 不要"></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">お問い合わせフォームの項目</div> <div class="description">必要な入力項目をご記入ください</div> </td> <td><textarea id="function-2" placeholder="例：お名前、会社名、メールアドレス、電話番号、お問い合わせ内容"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">ブログ機能の必要性</div> <div class="description">ブログやコラム更新機能</div> </td> <td><input type="text" id="function-3" placeholder="例：必要 / 不要"></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">ニュース・お知らせ機能</div> <div class="description">新着情報の更新機能</div> </td> <td><textarea id="function-4" placeholder="例：必要。月1〜2回程度更新予定"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">その他必要な機能</div> <div class="description">予約システム、会員機能、ECなど</div> </td> <td><textarea id="function-5" placeholder="例：資料ダウンロード機能、SNS連携"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">更新頻度の希望</div> <div class="description">自社で更新したいページと頻度</div> </td> <td><textarea id="function-6" placeholder="例：ニュースを月2回、ブログを週1回更新したい"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <!-- スケジュール・予算 --> <tr class="category-row"> <td colspan="3">スケジュール・予算</td> </tr> <tr> <td> <div class="question">公開希望時期</div> <div class="description">いつまでに公開したいか</div> </td> <td><input type="text" id="schedule-1" placeholder="例：2025年12月末までに公開希望"></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">公開希望日の背景</div> <div class="description">特定の時期に公開したい理由</div> </td> <td><textarea id="schedule-2" placeholder="例：新商品発表に合わせたい、年度初めに公開したい"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">制作スケジュールの制約</div> <div class="description">特定の時期に対応できない期間など</div> </td> <td><textarea id="schedule-3" placeholder="例：8月は繁忙期で対応困難、年末年始は休業"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">予算（総額）</div> <div class="description">制作費用の予算目安</div> </td> <td><input type="text" id="budget-1" placeholder="例：50〜100万円程度"></td> <td><span class="status-badge required">必須</span></td> </tr> <tr> <td> <div class="question">予算の内訳希望</div> <div class="description">特に重視したい項目や配分</div> </td> <td><textarea id="budget-2" placeholder="例：デザインに予算を多めに、写真撮影も含めたい"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">運用・保守の予算</div> <div class="description">公開後の月額費用の予算</div> </td> <td><input type="text" id="budget-3" placeholder="例：月1〜2万円程度"></td> <td><span class="status-badge optional">任意</span></td> </tr> <!-- その他 --> <tr class="category-row"> <td colspan="3">その他</td> </tr> <tr> <td> <div class="question">現在のWebサイトの有無</div> <div class="description">既存サイトがある場合はURLをご記入ください</div> </td> <td><input type="text" id="other-1" placeholder="例：https://example.com / なし"></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">現在のサイトの課題</div> <div class="description">既存サイトの問題点や不満点</div> </td> <td><textarea id="other-2" placeholder="例：デザインが古い、スマホ対応していない、情報が整理されていない"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">競合他社の状況</div> <div class="description">競合のWebサイトの状況や差別化したい点</div> </td> <td><textarea id="other-3" placeholder="例：競合はシンプルなデザインが多いので、より詳細な情報を掲載したい"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> <tr> <td> <div class="question">その他の要望・質問</div> <div class="description">その他、ご要望や気になる点</div> </td> <td><textarea id="other-4" placeholder="ご要望や質問がありましたら、ご自由にご記入ください"></textarea></td> <td><span class="status-badge optional">任意</span></td> </tr> </tbody> </table> <div class="footer"> <button class="export-btn" onclick="exportData()">入力内容をダウンロード</button> <p style="margin-top: 15px; font-size: 14px; color: #666;">入力内容はブラウザに自動保存されます</p> </div> </div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webサイト制作ヒアリングシート</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid #ddd;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #000;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 3px solid #333;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+        
+        .legend {
+            padding: 20px 30px;
+            background: #fafafa;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .legend-badge {
+            padding: 4px 12px;
+            border: 1px solid #333;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        
+        .required {
+            background: #000;
+            color: white;
+        }
+        
+        .optional {
+            background: white;
+            color: #333;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            background: #333;
+            color: white;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            border-right: 1px solid #555;
+        }
+        
+        th:last-child {
+            border-right: none;
+        }
+        
+        th:first-child {
+            width: 35%;
+        }
+        
+        th:last-child {
+            width: 15%;
+        }
+        
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tbody tr:hover {
+            background: #fafafa;
+        }
+        
+        td {
+            padding: 15px;
+            vertical-align: top;
+            border-right: 1px solid #eee;
+        }
+        
+        td:last-child {
+            border-right: none;
+        }
+        
+        .category-row {
+            background: #f5f5f5;
+            font-weight: 700;
+            font-size: 16px;
+            border-top: 2px solid #333;
+        }
+        
+        .category-row td {
+            padding: 12px 15px;
+            color: #000;
+        }
+        
+        .question {
+            font-size: 14px;
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .description {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            background: white;
+        }
+        
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #000;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border: 1px solid #333;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-badge.required {
+            background: #000;
+            color: white;
+        }
+        
+        .status-badge.optional {
+            background: white;
+            color: #333;
+        }
+        
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background: #fafafa;
+            border-top: 2px solid #ddd;
+        }
+        
+        .export-btn {
+            background: #000;
+            color: white;
+            border: 2px solid #000;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .export-btn:hover {
+            background: white;
+            color: #000;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                border: none;
+            }
+            
+            .export-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Webサイト制作ヒアリングシート</h1>
+            <p>各項目にご記入ください。入力内容は自動保存されます。</p>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-badge required">必須</span>
+                <span>必ずご記入ください</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-badge optional">任意</span>
+                <span>可能な範囲でご記入ください</span>
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>ご記入欄</th>
+                    <th>必須/任意</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 基本情報 -->
+                <tr class="category-row">
+                    <td colspan="3">基本情報</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">会社名</div>
+                        <div class="description">正式な会社名をご記入ください</div>
+                    </td>
+                    <td><input type="text" id="basic-1" placeholder="例：株式会社〇〇"></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">事業内容</div>
+                        <div class="description">主な事業内容を簡潔にご記入ください</div>
+                    </td>
+                    <td><textarea id="basic-2" placeholder="例：Webサイト制作、システム開発、コンサルティング"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">所在地</div>
+                        <div class="description">本社所在地をご記入ください</div>
+                    </td>
+                    <td><input type="text" id="basic-3" placeholder="例：〒xxx-xxxx 東京都渋谷区..."></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">設立年</div>
+                        <div class="description">会社の設立年をご記入ください</div>
+                    </td>
+                    <td><input type="text" id="basic-4" placeholder="例：2010年"></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">資本金</div>
+                        <div class="description">資本金をご記入ください</div>
+                    </td>
+                    <td><input type="text" id="basic-5" placeholder="例：1000万円"></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">経営理念</div>
+                        <div class="description">貴社の経営理念をご記入ください</div>
+                    </td>
+                    <td><textarea id="basic-6" placeholder="貴社の経営理念や大切にしている価値観"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">ビジョン</div>
+                        <div class="description">目指している将来像や目標</div>
+                    </td>
+                    <td><textarea id="basic-7" placeholder="将来目指している姿や達成したい目標"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">企業文化・特徴</div>
+                        <div class="description">社風や企業文化、他社との違い</div>
+                    </td>
+                    <td><textarea id="basic-8" placeholder="社風の特徴、大切にしている文化、他社と違う点など"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                
+                <!-- 目的とターゲット -->
+                <tr class="category-row">
+                    <td colspan="3">目的とターゲット</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">ホームページ制作の主な目的</div>
+                        <div class="description">集客、採用、ブランディング、情報提供など</div>
+                    </td>
+                    <td><textarea id="target-1" placeholder="例：新規顧客の獲得、企業認知度の向上"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">現在の課題</div>
+                        <div class="description">Webサイトで解決したい課題や問題点</div>
+                    </td>
+                    <td><textarea id="target-2" placeholder="例：問い合わせが少ない、採用応募がない、情報が古い"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">訪問者に取ってもらいたいアクション</div>
+                        <div class="description">具体的な行動目標（複数可）</div>
+                    </td>
+                    <td><textarea id="target-3" placeholder="例：お問い合わせフォームからの連絡、資料ダウンロード、応募"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">メインターゲット層</div>
+                        <div class="description">最も重要な訪問者層</div>
+                    </td>
+                    <td><textarea id="target-4" placeholder="例：30〜50代の経営者、企業の担当者"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">その他のターゲット層</div>
+                        <div class="description">副次的なターゲット層（既存顧客、求職者など）</div>
+                    </td>
+                    <td><textarea id="target-5" placeholder="例：新卒・中途採用希望者、既存顧客"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                
+                <!-- コンテンツ -->
+                <tr class="category-row">
+                    <td colspan="3">コンテンツ</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">必要なページ（基本ページ）</div>
+                        <div class="description">トップページ、会社概要など</div>
+                    </td>
+                    <td><textarea id="content-1" placeholder="例：トップページ、会社概要、代表挨拶"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">必要なページ（事業・サービス）</div>
+                        <div class="description">事業内容、サービス紹介など</div>
+                    </td>
+                    <td><textarea id="content-2" placeholder="例：事業内容、サービス一覧、サービス詳細ページ"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">必要なページ（実績・事例）</div>
+                        <div class="description">実績紹介、導入事例など</div>
+                    </td>
+                    <td><textarea id="content-3" placeholder="例：導入事例、実績一覧、お客様の声"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">必要なページ（その他）</div>
+                        <div class="description">採用情報、ニュース、お問い合わせなど</div>
+                    </td>
+                    <td><textarea id="content-4" placeholder="例：採用情報、お知らせ、お問い合わせ、プライバシーポリシー"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">特に強調したいポイント</div>
+                        <div class="description">最もアピールしたい内容や強み</div>
+                    </td>
+                    <td><textarea id="content-5" placeholder="例：業界No.1の実績、独自の技術力、顧客満足度"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">掲載したい実績・数字</div>
+                        <div class="description">具体的な数字やデータ</div>
+                    </td>
+                    <td><textarea id="content-6" placeholder="例：取引社数300社以上、顧客満足度95%、導入実績500件"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">既存の文章素材</div>
+                        <div class="description">会社案内、パンフレット等の既存文章</div>
+                    </td>
+                    <td><textarea id="content-7" placeholder="例：会社案内あり、サービス紹介文あり、新規作成必要"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">写真・画像素材</div>
+                        <div class="description">オフィス、社員、商品等の写真の有無</div>
+                    </td>
+                    <td><textarea id="content-8" placeholder="例：オフィス写真あり、社員写真は撮影必要"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">ロゴデータ</div>
+                        <div class="description">ロゴの有無とデータ形式</div>
+                    </td>
+                    <td><input type="text" id="content-9" placeholder="例：AI形式で保有、PNG形式のみ、ロゴなし"></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                
+                <!-- デザイン・雰囲気 -->
+                <tr class="category-row">
+                    <td colspan="3">デザイン・雰囲気</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">デザインの方向性</div>
+                        <div class="description">全体的な印象や雰囲気</div>
+                    </td>
+                    <td><textarea id="design-1" placeholder="例：シンプルでモダン、信頼感がある、先進的、親しみやすい"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">デザインのテイスト</div>
+                        <div class="description">具体的なスタイル</div>
+                    </td>
+                    <td><textarea id="design-2" placeholder="例：ミニマル、コーポレート、カジュアル、高級感"></textarea></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">避けたいデザイン</div>
+                        <div class="description">避けたい印象やスタイル</div>
+                    </td>
+                    <td><textarea id="design-3" placeholder="例：派手すぎる、古臭い、堅苦しすぎる"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">コーポレートカラー</div>
+                        <div class="description">既存のブランドカラー（カラーコード）</div>
+                    </td>
+                    <td><input type="text" id="design-4" placeholder="例：青系（#0066CC）、赤（#CC0000）"></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">使用したい色</div>
+                        <div class="description">メインカラー、サブカラーの希望</div>
+                    </td>
+                    <td><textarea id="design-5" placeholder="例：メイン：青、サブ：白とグレー"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">参考サイト（好みのデザイン）</div>
+                        <div class="description">デザインが気に入っているサイト</div>
+                    </td>
+                    <td><textarea id="design-6" placeholder="URL：&#10;好きなポイント："></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">参考サイト（競合他社）</div>
+                        <div class="description">競合サイトで参考になるもの</div>
+                    </td>
+                    <td><textarea id="design-7" placeholder="URL：&#10;参考にしたいポイント："></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">参考サイト（他業種）</div>
+                        <div class="description">他業種で参考になるサイト</div>
+                    </td>
+                    <td><textarea id="design-8" placeholder="URL：&#10;参考にしたいポイント："></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                
+                <!-- 機能要件 -->
+                <tr class="category-row">
+                    <td colspan="3">機能要件</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">お問い合わせフォームの必要性</div>
+                        <div class="description">必要・不要をご記入ください</div>
+                    </td>
+                    <td><input type="text" id="function-1" placeholder="例：必要 / 不要"></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">お問い合わせフォームの項目</div>
+                        <div class="description">必要な入力項目をご記入ください</div>
+                    </td>
+                    <td><textarea id="function-2" placeholder="例：お名前、会社名、メールアドレス、電話番号、お問い合わせ内容"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">ブログ機能の必要性</div>
+                        <div class="description">ブログやコラム更新機能</div>
+                    </td>
+                    <td><input type="text" id="function-3" placeholder="例：必要 / 不要"></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">ニュース・お知らせ機能</div>
+                        <div class="description">新着情報の更新機能</div>
+                    </td>
+                    <td><textarea id="function-4" placeholder="例：必要。月1〜2回程度更新予定"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">その他必要な機能</div>
+                        <div class="description">予約システム、会員機能、ECなど</div>
+                    </td>
+                    <td><textarea id="function-5" placeholder="例：資料ダウンロード機能、SNS連携"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">更新頻度の希望</div>
+                        <div class="description">自社で更新したいページと頻度</div>
+                    </td>
+                    <td><textarea id="function-6" placeholder="例：ニュースを月2回、ブログを週1回更新したい"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                
+                <!-- スケジュール・予算 -->
+                <tr class="category-row">
+                    <td colspan="3">スケジュール・予算</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">公開希望時期</div>
+                        <div class="description">いつまでに公開したいか</div>
+                    </td>
+                    <td><input type="text" id="schedule-1" placeholder="例：2025年12月末までに公開希望"></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">公開希望日の背景</div>
+                        <div class="description">特定の時期に公開したい理由</div>
+                    </td>
+                    <td><textarea id="schedule-2" placeholder="例：新商品発表に合わせたい、年度初めに公開したい"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">制作スケジュールの制約</div>
+                        <div class="description">特定の時期に対応できない期間など</div>
+                    </td>
+                    <td><textarea id="schedule-3" placeholder="例：8月は繁忙期で対応困難、年末年始は休業"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">予算（総額）</div>
+                        <div class="description">制作費用の予算目安</div>
+                    </td>
+                    <td><input type="text" id="budget-1" placeholder="例：50〜100万円程度"></td>
+                    <td><span class="status-badge required">必須</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">予算の内訳希望</div>
+                        <div class="description">特に重視したい項目や配分</div>
+                    </td>
+                    <td><textarea id="budget-2" placeholder="例：デザインに予算を多めに、写真撮影も含めたい"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">運用・保守の予算</div>
+                        <div class="description">公開後の月額費用の予算</div>
+                    </td>
+                    <td><input type="text" id="budget-3" placeholder="例：月1〜2万円程度"></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                
+                <!-- その他 -->
+                <tr class="category-row">
+                    <td colspan="3">その他</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">現在のWebサイトの有無</div>
+                        <div class="description">既存サイトがある場合はURLをご記入ください</div>
+                    </td>
+                    <td><input type="text" id="other-1" placeholder="例：https://example.com / なし"></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">現在のサイトの課題</div>
+                        <div class="description">既存サイトの問題点や不満点</div>
+                    </td>
+                    <td><textarea id="other-2" placeholder="例：デザインが古い、スマホ対応していない、情報が整理されていない"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">競合他社の状況</div>
+                        <div class="description">競合のWebサイトの状況や差別化したい点</div>
+                    </td>
+                    <td><textarea id="other-3" placeholder="例：競合はシンプルなデザインが多いので、より詳細な情報を掲載したい"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="question">その他の要望・質問</div>
+                        <div class="description">その他、ご要望や気になる点</div>
+                    </td>
+                    <td><textarea id="other-4" placeholder="ご要望や質問がありましたら、ご自由にご記入ください"></textarea></td>
+                    <td><span class="status-badge optional">任意</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="footer">
+            <button class="export-btn" onclick="exportData()">入力内容をダウンロード</button>
+            <p style="margin-top: 15px; font-size: 14px; color: #666;">入力内容はブラウザに自動保存されます</p>
+        </div>
+    </div>
+    
+    <script>
+        const fields = [
+            'basic-1', 'basic-2', 'basic-3', 'basic-4', 'basic-5', '
