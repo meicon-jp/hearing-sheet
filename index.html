@@ -4,193 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webサイト制作ヒアリングシート</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif;
-            background: white;
-            color: #e0e0e0;
-            padding: 20px;
-            line-height: 1.6;
-        }
+    body {
+      font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif;
+      background: #ffffff;
+      color: #222;
+      padding: 20px;
+      line-height: 1.6;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.6);
-            overflow: hidden;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
 
-        .header {
-            background: #1e1e1e;
-            color: #fff;
-            padding: 30px;
-            text-align: center;
-        }
+    .header {
+      background: #111;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
 
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
 
-        .header p {
-            font-size: 14px;
-            opacity: 0.85;
-        }
+    .header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
 
-        .legend {
-            padding: 20px 30px;
-            background: #1b1b1b;
-            border-bottom: 1px solid #333;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+    .legend {
+      padding: 20px 30px;
+      background: #eee;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-        }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #333;
+    }
 
-        .legend-badge {
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 12px;
-        }
+    .legend-badge {
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12px;
+    }
 
-        .required {
-            background: #330000;
-            color: #ff6b6b;
-        }
+    .required {
+      background: #ffebeb;
+      color: #c0392b;
+      border: 1px solid #c0392b;
+    }
 
-        .optional {
-            background: #002b4f;
-            color: #4f7eff;
-        }
+    .optional {
+      background: #e8f0ff;
+      color: #2951a3;
+      border: 1px solid #2951a3;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-        thead {
-            background: #2a2a2a;
-            color: #fff;
-        }
+    thead {
+      background: #111;
+      color: #fff;
+    }
 
-        th {
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 14px;
-            border-bottom: 1px solid #333;
-        }
+    th {
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+      border-bottom: 1px solid #333;
+    }
 
-        th:first-child { width: 35%; }
-        th:last-child { width: 15%; }
+    th:first-child { width: 35%; }
+    th:last-child { width: 15%; }
 
-        tbody tr {
-            border-bottom: 1px solid #333;
-        }
+    tbody tr {
+      border-bottom: 1px solid #ddd;
+    }
 
-        tbody tr:hover {
-            background: #181818;
-        }
+    tbody tr:hover {
+      background: #f1f1f1;
+    }
 
-        td {
-            padding: 15px;
-            vertical-align: top;
-        }
+    td {
+      padding: 15px;
+      vertical-align: top;
+    }
 
-        .category-row {
-            background: #252525;
-            font-weight: 600;
-            font-size: 16px;
-        }
+    .category-row {
+      background: #222;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+    }
 
-        .question {
-            font-size: 14px;
-            color: #fff;
-        }
+    .question {
+      font-size: 14px;
+      color: #111;
+      font-weight: 600;
+    }
 
-        .description {
-            font-size: 13px;
-            color: #aaa;
-            margin-top: 4px;
-        }
+    .description {
+      font-size: 13px;
+      color: #666;
+      margin-top: 4px;
+    }
 
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            background: #0f0f0f;
-            color: #e0e0e0;
-            border: 1px solid #333;
-            border-radius: 4px;
-            font-size: 14px;
-            font-family: inherit;
-            transition: all 0.2s;
-        }
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      background: #fff;
+      color: #111;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
 
-        input[type="text"]:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #4f7eff;
-            box-shadow: 0 0 0 3px rgba(79,126,255,0.15);
-        }
+    input[type="text"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #4f7eff;
+      box-shadow: 0 0 0 3px rgba(79,126,255,0.15);
+    }
 
-        textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
 
-        .status-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
+    .footer {
+      padding: 30px;
+      text-align: center;
+      background: #111;
+      border-top: 1px solid #222;
+      color: #fff;
+    }
 
-        .footer {
-            padding: 30px;
-            text-align: center;
-            background: #1b1b1b;
-            border-top: 1px solid #333;
-        }
+    .export-btn {
+      background: linear-gradient(135deg, #4f7eff, #334bcc);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-        .export-btn {
-            background: linear-gradient(135deg, #4f7eff, #334bcc);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+    .export-btn:hover {
+      background: linear-gradient(135deg, #678bff, #4f7eff);
+    }
 
-        .export-btn:hover {
-            background: linear-gradient(135deg, #678bff, #4f7eff);
-        }
-
-        @media print {
-            body { background: white; color: black; padding: 0; }
-            .container { box-shadow: none; }
-            .export-btn { display: none; }
-        }
-    </style>
+    @media print {
+      body { background: white; color: black; padding: 0; }
+      .container { box-shadow: none; }
+      .export-btn { display: none; }
+    }
+  </style>
 </head>
 <body>
     <div class="container">
