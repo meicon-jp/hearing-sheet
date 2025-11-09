@@ -342,7 +342,7 @@
                 <tr>
                     <td>
                         <div class="question">訪問者に取ってもらいたいアクション</div>
-                        <div class="description">具体的な行動目標（複数可）</div>
+                        <div class="description">具体的な行動目標</div>
                     </td>
                     <td><textarea id="target-3" placeholder="例：お問い合わせフォームからの連絡、資料ダウンロード、応募"></textarea></td>
                     <td><span class="status-badge required">必須</span></td>
@@ -362,34 +362,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="question">必要なページ（基本ページ）</div>
+                        <div class="question">必要なページ</div>
                         <div class="description">トップページ、会社概要など</div>
                     </td>
-                    <td><textarea id="content-1" placeholder="例：トップページ、会社概要、代表挨拶"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">必要なページ（事業・サービス）</div>
-                        <div class="description">事業内容、サービス紹介など</div>
-                    </td>
-                    <td><textarea id="content-2" placeholder="例：事業内容、サービス一覧、サービス詳細ページ"></textarea></td>
-                    <td><span class="status-badge required">必須</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">必要なページ（実績・事例）</div>
-                        <div class="description">実績紹介、導入事例など</div>
-                    </td>
-                    <td><textarea id="content-3" placeholder="例：導入事例、実績一覧、お客様の声"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">必要なページ（その他）</div>
-                        <div class="description">採用情報、ニュース、お問い合わせなど</div>
-                    </td>
-                    <td><textarea id="content-4" placeholder="例：採用情報、お知らせ、お問い合わせ、プライバシーポリシー"></textarea></td>
+                    <td><textarea id="content-1" placeholder="例：トップページ、会社概要、事業内容、サービス、お知らせ"></textarea></td>
                     <td><span class="status-badge required">必須</span></td>
                 </tr>
                 <tr>
@@ -410,26 +386,25 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="question">既存の文章素材</div>
-                        <div class="description">会社案内、パンフレット等の既存文章</div>
+                        <div class="question">既存の文章素材の有無</div>
+                        <div class="description">挿入したい文章等</div>
                     </td>
-                    <td><textarea id="content-7" placeholder="例：会社案内あり、サービス紹介文あり、新規作成必要"></textarea></td>
+                    <td><textarea id="content-7" placeholder="例：あり/依頼したい"></textarea></td>
                     <td><span class="status-badge optional">任意</span></td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="question">写真・画像素材</div>
-                        <div class="description">オフィス、社員、商品等の写真の有無</div>
+                        <div class="question">写真・画像素材の有無</div>
+                        <div class="description">商品の写真等</div>
                     </td>
-                    <td><textarea id="content-8" placeholder="例：オフィス写真あり、社員写真は撮影必要"></textarea></td>
+                    <td><textarea id="content-8" placeholder="例：あり/依頼したい"></textarea></td>
                     <td><span class="status-badge optional">任意</span></td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="question">ロゴデータ</div>
-                        <div class="description">ロゴの有無とデータ形式</div>
+                        <div class="question">ロゴの有無</div>
                     </td>
-                    <td><input type="text" id="content-9" placeholder="例：AI形式で保有、PNG形式のみ、ロゴなし"></td>
+                    <td><input type="text" id="content-9" placeholder="例：あり（PNG形式）/ロゴなし"></td>
                     <td><span class="status-badge optional">任意</span></td>
                 </tr>
                 
@@ -520,7 +495,7 @@
                         <div class="description">ブログやコラム更新機能</div>
                     </td>
                     <td><input type="text" id="function-3" placeholder="例：必要 / 不要"></td>
-                    <td><span class="status-badge optional">任意</span></td>
+                    <td><span class="status-badge required">必須</span></td>
                 </tr>
                 <tr>
                     <td>
@@ -538,14 +513,6 @@
                     <td><textarea id="function-5" placeholder="例：資料ダウンロード機能、SNS連携"></textarea></td>
                     <td><span class="status-badge optional">任意</span></td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="question">更新頻度の希望</div>
-                        <div class="description">自社で更新したいページと頻度</div>
-                    </td>
-                    <td><textarea id="function-6" placeholder="例：ニュースを月2回、ブログを週1回更新したい"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
                 
                 <!-- スケジュール・予算 -->
                 <tr class="category-row">
@@ -561,44 +528,13 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="question">公開希望日の背景</div>
-                        <div class="description">特定の時期に公開したい理由</div>
-                    </td>
-                    <td><textarea id="schedule-2" placeholder="例：新商品発表に合わせたい、年度初めに公開したい"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">制作スケジュールの制約</div>
-                        <div class="description">特定の時期に対応できない期間など</div>
-                    </td>
-                    <td><textarea id="schedule-3" placeholder="例：8月は繁忙期で対応困難、年末年始は休業"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                <tr>
-                    <td>
                         <div class="question">予算（総額）</div>
                         <div class="description">制作費用の予算目安</div>
                     </td>
-                    <td><input type="text" id="budget-1" placeholder="例：50〜100万円程度"></td>
+                    <td><input type="text" id="budget-1" placeholder="例：10〜20万円程度"></td>
                     <td><span class="status-badge required">必須</span></td>
                 </tr>
                 <tr>
-                    <td>
-                        <div class="question">予算の内訳希望</div>
-                        <div class="description">特に重視したい項目や配分</div>
-                    </td>
-                    <td><textarea id="budget-2" placeholder="例：デザインに予算を多めに、写真撮影も含めたい"></textarea></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="question">運用・保守の予算</div>
-                        <div class="description">公開後の月額費用の予算</div>
-                    </td>
-                    <td><input type="text" id="budget-3" placeholder="例：月1〜2万円程度"></td>
-                    <td><span class="status-badge optional">任意</span></td>
-                </tr>
                 
                 <!-- その他 -->
                 <tr class="category-row">
