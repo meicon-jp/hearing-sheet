@@ -557,6 +557,9 @@
         </div>
     </div>
 <script>
+<!-- このスクリプトを HTML の一番下（</body> の直前）に入れてください -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
     const fields = [
         'basic-1', 'basic-2', 'basic-3', 'basic-4', 'basic-5',
         'basic-6', 'basic-7', 'basic-8', 'target-1', 'target-3', 'target-4',
@@ -565,50 +568,74 @@
         'function-1', 'function-2', 'function-3', 'function-4', 'function-5',
         'schedule-1', 'budget-1', 'other-4'
     ];
-            // 入力内容をローカルストレージに保存
+
+    // ローカルストレージ保存＆読み込み
+    fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        // 初期値読み込み
+        const stored = localStorage.getItem(id);
+        if (stored !== null) el.value = stored;
+        // 保存
+        el.addEventListener('input', () => {
+            localStorage.setItem(id, el.value);
+        });
+    });
+
+    // ラベル（質問文）を取得するヘルパー
+    const getLabel = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return id;
+        const tr = el.closest('tr');
+        if (!tr) return id;
+        const firstTd = tr.querySelector('td:first-child');
+        if (!firstTd) return id;
+        const q = firstTd.querySelector('.question')?.innerText?.trim();
+        return q || id;
+    };
+
+    // ダウンロード用関数（ローカルで完結）
+    function exportData() {
+        let content = '【Webサイト制作ヒアリングシート】\n\n';
         fields.forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
-            // 読み込み時
-            el.value = localStorage.getItem(id) || '';
-            // 入力時に保存
-            el.addEventListener('input', () => {
-                localStorage.setItem(id, el.value);
-            });
+            const label = getLabel(id);
+            const value = (el.value || '').trim() || '（未入力）';
+            content += `${label}：\n${value}\n\n`;
         });
 
-        // テキストファイルとしてダウンロードする関数
-        function exportData() {
-            let content = '【Webサイト制作ヒアリングシート】\n\n';
-            
-            const getLabel = (id) => {
-                const td = document.getElementById(id)?.closest('tr')?.querySelector('td:first-child');
-                if (td) {
-                    const q = td.querySelector('.question')?.innerText?.trim() || '';
-                    return q;
-                }
-                return id;
-            };
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
 
-            fields.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    const label = getLabel(id);
-                    const value = el.value.trim() || '（未入力）';
-                    content += `${label}：\n${value}\n\n`;
-                }
-            });
+        // ファイル名を会社名＋日付（もし会社名が入力されていれば）にする例
+        const company = (document.getElementById('basic-1')?.value || '').trim();
+        const yyyy = new Date().toISOString().slice(0,10); // YYYY-MM-DD
+        a.download = (company ? `${company}_` : '') + `Webサイト制作ヒアリングシート_${yyyy}.txt`;
 
-            const blob = new Blob([content], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Webサイト制作ヒアリングシート.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    // ボタンにイベントを付与（inline onclick を消してもOK）
+    const exportBtn = document.querySelector('.export-btn');
+    if (exportBtn) {
+        exportBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            exportData();
+        });
+    }
+
+    // もし他スクリプトが window.exportData() を呼ぶ可能性があるならグローバルにもしておく
+    window.exportData = exportData;
+});
+</script>
+
+</script>
 </body>
     </html>
 
