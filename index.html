@@ -556,7 +556,59 @@
             <p style="margin-top: 15px; font-size: 14px; color: #666;">入力内容はブラウザに自動保存されます</p>
         </div>
     </div>
-    
-    <script>
-        const fields = [
-            'basic-1', 'basic-2', 'basic-3', 'basic-4', 'basic-5', '
+<script>
+    const fields = [
+        'basic-1', 'basic-2', 'basic-3', 'basic-4', 'basic-5',
+        'basic-6', 'basic-7', 'basic-8', 'target-1', 'target-3', 'target-4',
+        'content-1', 'content-5', 'content-6', 'content-7', 'content-8', 'content-9',
+        'design-1', 'design-3', 'design-4', 'design-5', 'design-6', 'design-7', 'design-8',
+        'function-1', 'function-2', 'function-3', 'function-4', 'function-5',
+        'schedule-1', 'budget-1', 'other-4'
+    ];
+            // 入力内容をローカルストレージに保存
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            // 読み込み時
+            el.value = localStorage.getItem(id) || '';
+            // 入力時に保存
+            el.addEventListener('input', () => {
+                localStorage.setItem(id, el.value);
+            });
+        });
+
+        // テキストファイルとしてダウンロードする関数
+        function exportData() {
+            let content = '【Webサイト制作ヒアリングシート】\n\n';
+            
+            const getLabel = (id) => {
+                const td = document.getElementById(id)?.closest('tr')?.querySelector('td:first-child');
+                if (td) {
+                    const q = td.querySelector('.question')?.innerText?.trim() || '';
+                    return q;
+                }
+                return id;
+            };
+
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const label = getLabel(id);
+                    const value = el.value.trim() || '（未入力）';
+                    content += `${label}：\n${value}\n\n`;
+                }
+            });
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Webサイト制作ヒアリングシート.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+</body>
+    </html>
+
