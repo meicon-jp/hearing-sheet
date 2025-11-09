@@ -3,231 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webサイト制作ヒアリングシート</title>
+    <title>Webサイト制作ヒアリングシート（黒基調 完全版）</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif;
-            background: #f5f5f5;
+            background: #121212;
+            color: #e0e0e0;
             padding: 20px;
             line-height: 1.6;
-            color: #333;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border: 1px solid #ddd;
+            background: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.6);
             overflow: hidden;
         }
-        
+
         .header {
             background: #000;
-            color: white;
+            color: #fff;
             padding: 30px;
             text-align: center;
-            border-bottom: 3px solid #333;
         }
-        
+
         .header h1 {
             font-size: 28px;
             margin-bottom: 10px;
-            font-weight: 700;
         }
-        
+
         .header p {
             font-size: 14px;
             opacity: 0.85;
         }
-        
+
         .legend {
             padding: 20px 30px;
-            background: #fafafa;
-            border-bottom: 1px solid #ddd;
+            background: #1b1b1b;
+            border-bottom: 1px solid #333;
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
-        
+
         .legend-item {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 14px;
         }
-        
+
         .legend-badge {
             padding: 4px 12px;
-            border: 1px solid #333;
+            border-radius: 4px;
             font-weight: 600;
             font-size: 12px;
         }
-        
+
         .required {
-            background: #000;
-            color: white;
+            background: #330000;
+            color: #ff6b6b;
         }
-        
+
         .optional {
-            background: white;
-            color: #333;
+            background: #002b4f;
+            color: #4f7eff;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
-        
+
         thead {
-            background: #333;
-            color: white;
+            background: #2a2a2a;
+            color: #fff;
         }
-        
+
         th {
             padding: 15px;
             text-align: left;
             font-weight: 600;
             font-size: 14px;
-            border-right: 1px solid #555;
+            border-bottom: 1px solid #333;
         }
-        
-        th:last-child {
-            border-right: none;
-        }
-        
-        th:first-child {
-            width: 35%;
-        }
-        
-        th:last-child {
-            width: 15%;
-        }
-        
+
+        th:first-child { width: 35%; }
+        th:last-child { width: 15%; }
+
         tbody tr {
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #333;
         }
-        
+
         tbody tr:hover {
-            background: #fafafa;
+            background: #181818;
         }
-        
+
         td {
             padding: 15px;
             vertical-align: top;
-            border-right: 1px solid #eee;
         }
-        
-        td:last-child {
-            border-right: none;
-        }
-        
+
         .category-row {
-            background: #f5f5f5;
-            font-weight: 700;
+            background: #252525;
+            font-weight: 600;
             font-size: 16px;
-            border-top: 2px solid #333;
         }
-        
-        .category-row td {
-            padding: 12px 15px;
-            color: #000;
-        }
-        
+
         .question {
             font-size: 14px;
-            color: #000;
-            font-weight: 600;
+            color: #fff;
         }
-        
+
         .description {
             font-size: 13px;
-            color: #666;
+            color: #aaa;
             margin-top: 4px;
         }
-        
+
         input[type="text"],
         textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            border: 1px solid #333;
+            border-radius: 4px;
             font-size: 14px;
             font-family: inherit;
-            transition: border-color 0.2s;
-            background: white;
+            transition: all 0.2s;
         }
-        
+
         input[type="text"]:focus,
         textarea:focus {
             outline: none;
-            border-color: #000;
-            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+            border-color: #4f7eff;
+            box-shadow: 0 0 0 3px rgba(79,126,255,0.15);
         }
-        
+
         textarea {
             min-height: 80px;
             resize: vertical;
         }
-        
+
         .status-badge {
             display: inline-block;
             padding: 4px 10px;
-            border: 1px solid #333;
+            border-radius: 12px;
             font-size: 12px;
             font-weight: 600;
         }
-        
-        .status-badge.required {
-            background: #000;
-            color: white;
-        }
-        
-        .status-badge.optional {
-            background: white;
-            color: #333;
-        }
-        
+
         .footer {
             padding: 30px;
             text-align: center;
-            background: #fafafa;
-            border-top: 2px solid #ddd;
+            background: #1b1b1b;
+            border-top: 1px solid #333;
         }
-        
+
         .export-btn {
-            background: #000;
+            background: linear-gradient(135deg, #4f7eff, #334bcc);
             color: white;
-            border: 2px solid #000;
+            border: none;
             padding: 12px 30px;
+            border-radius: 6px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: 0.2s;
         }
-        
+
         .export-btn:hover {
-            background: white;
-            color: #000;
+            background: linear-gradient(135deg, #678bff, #4f7eff);
         }
-        
+
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                border: none;
-            }
-            
-            .export-btn {
-                display: none;
-            }
+            body { background: white; color: black; padding: 0; }
+            .container { box-shadow: none; }
+            .export-btn { display: none; }
         }
     </style>
 </head>
@@ -265,47 +226,56 @@
             <p style="margin-top: 15px; font-size: 14px; color: #aaa;">入力内容はブラウザに自動保存されます</p>
         </div>
     </div>
-
-<script>
+    <script>
 const sections = {
     "基本情報": [
-        ["会社名", "text", true, "例：株式会社〇〇"],
-        ["所在地", "text", true, "例：東京都〇〇区〇〇1-2-3"],
-        ["設立年月", "text", true, "例：2025年9月"],
+        ["会社名", "text", true, "例：株式会社ミライデザイン"],
+        ["所在地", "text", true, "例：愛知県名古屋市中区〇〇1-2-3"],
+        ["設立年月", "text", true, "例：2020年4月"],
         ["資本金", "text", true, "例：300万円"],
-        ["事業内容", "textarea", true, "例：デザイン、マーケティング"],
-        ["代表者名", "text", true, "例：山田 太郎"],
+        ["事業内容", "textarea", true, "例：Webサイト制作、デザイン、マーケティングなど"],
+        ["代表者名", "text", false, "例：山田 太郎"],
+        ["担当者名・連絡先", "textarea", true, "例：担当：佐藤 花子 / 080-1234-5678 / sato@example.com"],
+        ["公式サイトURL", "text", false, "例：https://example.com"],
         ["SNSアカウント", "textarea", false, "例：Instagram：@example / X：@example_jp"]
     ],
     "目的とターゲット": [
-        ["制作の目的", "textarea", true, "例：新規顧客の獲得、ブランドイメージ向上など"],
-        ["現在の課題・悩み", "textarea", false, "例：既存サイトが古い／スマホ対応ができていない／更新がしづらい など"],
-        ["ターゲット層", "textarea", true, "例：20〜30代の女性"],
-        ["訪問者に取ってもらいたい行動", "textarea", true, "例：問い合わせフォーム送信／資料請求／LINE登録など"]
+        ["制作の目的", "textarea", true, "例：新規顧客の獲得、採用強化、ブランドイメージ向上など"],
+        ["現在の課題・悩み", "textarea", true, "例：既存サイトが古い／スマホ対応ができていない／更新がしづらい など"],
+        ["成功の基準（成果指標）", "textarea", false, "例：アクセス数増加／問い合わせ数アップ／採用応募件数 など"],
+        ["ターゲット層", "textarea", true, "例：20〜30代の女性／BtoB企業の担当者など"],
+        ["訪問者に取ってもらいたい行動（CTA）", "textarea", true, "例：問い合わせフォーム送信／資料請求／LINE登録 など"]
     ],
     "コンテンツ": [
         ["必要なページ一覧", "textarea", true, "例：トップページ／サービス紹介／会社概要／採用情報／お問い合わせ"],
         ["各ページに掲載したい内容", "textarea", true, "例：サービス紹介→特徴・料金・事例を掲載したい など"],
         ["強調したいポイント", "textarea", true, "例：スピード対応／高品質デザイン／低価格パッケージなど"],
-        ["画像素材等の有無", "textarea", false, "例：ロゴ・イラストあり"],
-        ["挿入したい文章の有無", "text", false, "例：あり／依頼したい"]
+        ["使用予定の素材", "textarea", false, "例：ロゴ・写真・動画・イラスト など"],
+        ["素材の状態", "text", false, "例：全て準備済み／写真のみ未撮影 など"],
+        ["原稿ライティング方法", "text", false, "例：自社で作成／依頼したい"]
     ],
     "デザイン・雰囲気": [
         ["希望のテイスト", "textarea", true, "例：シンプル・モダン・ナチュラル・高級感など"],
         ["使用したいカラー・ブランドカラー", "text", false, "例：黒・白・ゴールド／#333333 など"],
         ["使用NGなカラー・要素", "text", false, "例：派手なピンク／動きが多い演出など"],
-        ["参考にしたいサイトURL", "textarea", false, "例：https://example1.jp],
-        ["使用したいフォント", "textarea", false, "例：丸みのあるフォント"],
+        ["参考にしたいサイトURL", "textarea", false, "例：https://example1.jp / https://example2.com"],
+        ["使用したいフォント・写真イメージ", "textarea", false, "例：丸みのあるフォント／自然光の写真など"],
+        ["レイアウト希望（1カラム・2カラムなど）", "text", false, "例：1カラムでシンプルに"]
     ],
     "機能要件": [
-        ["お問い合わせフォーム", "textarea", false, "例：名前・メール・電話・内容・プライバシー同意チェックなど"],
-        ["ブログ・ニュース機能", "textarea", false, "例：お知らせを発信したい／ブログ形式で発信したい"],
+        ["お問い合わせフォーム", "textarea", true, "例：名前・メール・電話・内容・プライバシー同意チェックなど"],
+        ["ブログ・ニュース機能", "textarea", false, "例：社内ニュースを更新したい／ブログ形式で発信したいなど"],
         ["SNS連携", "textarea", false, "例：Instagram埋め込み／Xタイムライン表示など"],
         ["多言語対応", "text", false, "例：日本語・英語サイトを切り替えたい"],
+        ["SEO対策（希望キーワード等）", "textarea", false, "例：名古屋 Web制作／コーポレートサイト制作 など"],
+        ["アクセス解析導入", "text", false, "例：Google Analytics 4 / Search Console"]
     ],
     "スケジュール・予算": [
-        ["公開希望時期", "text", false, "例：2025年3月末までに公開希望"],
-        ["予算の目安", "text", true, "例：10〜20万円程度"],
+        ["制作開始希望時期", "text", true, "例：2025年1月上旬〜"],
+        ["公開希望時期", "text", true, "例：2025年3月末までに公開希望"],
+        ["予算の目安", "text", true, "例：30〜50万円程度"],
+        ["優先度（スピード／品質）", "text", false, "例：スピード重視／デザイン品質重視 など"],
+        ["継続運用・保守希望", "textarea", false, "例：月1回更新代行をお願いしたい など"]
     ]
 };
 
@@ -368,5 +338,6 @@ function exportData() {
     URL.revokeObjectURL(url);
 }
 </script>
+
 </body>
 </html>
