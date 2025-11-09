@@ -557,85 +557,94 @@
         </div>
     </div>
 <script>
-<!-- このスクリプトを HTML の一番下（</body> の直前）に入れてください -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
     const fields = [
-        'basic-1', 'basic-2', 'basic-3', 'basic-4', 'basic-5',
-        'basic-6', 'basic-7', 'basic-8', 'target-1', 'target-3', 'target-4',
-        'content-1', 'content-5', 'content-6', 'content-7', 'content-8', 'content-9',
-        'design-1', 'design-3', 'design-4', 'design-5', 'design-6', 'design-7', 'design-8',
-        'function-1', 'function-2', 'function-3', 'function-4', 'function-5',
-        'schedule-1', 'budget-1', 'other-4'
+        'basic-1', 'basic-2', 'basic-3',
+        'target-1', 'target-2', 'target-3',
+        'content-1', 'content-2', 'content-3',
+        'design-1', 'design-2', 'design-3',
+        'function-1', 'function-2',
+        'schedule-1', 'budget-1'
     ];
-
-    // ローカルストレージ保存＆読み込み
+    
+    // ==== 自動保存・自動読み込み ====
     fields.forEach(id => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        // 初期値読み込み
-        const stored = localStorage.getItem(id);
-        if (stored !== null) el.value = stored;
-        // 保存
-        el.addEventListener('input', () => {
-            localStorage.setItem(id, el.value);
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        // 保存されているデータを読み込み
+        const saved = localStorage.getItem(id);
+        if (saved) {
+            element.value = saved;
+        }
+        
+        // 入力時に自動保存
+        element.addEventListener('input', () => {
+            localStorage.setItem(id, element.value);
         });
     });
-
-    // ラベル（質問文）を取得するヘルパー
-    const getLabel = (id) => {
-        const el = document.getElementById(id);
-        if (!el) return id;
-        const tr = el.closest('tr');
-        if (!tr) return id;
-        const firstTd = tr.querySelector('td:first-child');
-        if (!firstTd) return id;
-        const q = firstTd.querySelector('.question')?.innerText?.trim();
-        return q || id;
-    };
-
-    // ダウンロード用関数（ローカルで完結）
+    
+    // ==== テキスト出力 ====
     function exportData() {
-        let content = '【Webサイト制作ヒアリングシート】\n\n';
-        fields.forEach(id => {
-            const el = document.getElementById(id);
-            if (!el) return;
-            const label = getLabel(id);
-            const value = (el.value || '').trim() || '（未入力）';
-            content += `${label}：\n${value}\n\n`;
-        });
-
-        const blob = new Blob([content], { type: 'text/plain' });
+        let output = 'Webサイト制作ヒアリングシート\n';
+        output += '='.repeat(50) + '\n\n';
+        
+        const sections = {
+            '基本情報': ['basic-1', 'basic-2', 'basic-3'],
+            '目的とターゲット': ['target-1', 'target-2', 'target-3'],
+            'コンテンツ': ['content-1', 'content-2', 'content-3'],
+            'デザイン・雰囲気': ['design-1', 'design-2', 'design-3'],
+            '機能要件': ['function-1', 'function-2'],
+            'スケジュール・予算': ['schedule-1', 'budget-1']
+        };
+        
+        const labels = {
+            'basic-1': '会社名・事業内容・所在地',
+            'basic-2': '設立年・資本金',
+            'basic-3': '経営理念・ビジョン・企業文化',
+            'target-1': 'ホームページの主な目的',
+            'target-2': '訪問者に取ってもらいたいアクション',
+            'target-3': 'ターゲットとなる訪問者',
+            'content-1': '必要なページ構成',
+            'content-2': '掲載したい情報・強調したいポイント',
+            'content-3': '既存素材の有無',
+            'design-1': '好みのデザインテイスト',
+            'design-2': 'コーポレートカラー等の有無',
+            'design-3': '参考にしたいサイト',
+            'function-1': 'お問い合わせフォームの必要性',
+            'function-2': 'ブログ・ニュース更新機能の必要性',
+            'schedule-1': '公開希望時期',
+            'budget-1': '予算'
+        };
+        
+        // 各セクションを順に書き出す
+        for (const [section, ids] of Object.entries(sections)) {
+            output += `■ ${section}\n`;
+            output += '-'.repeat(50) + '\n';
+            
+            ids.forEach(id => {
+                const value = document.getElementById(id)?.value || '（未入力）';
+                output += `${labels[id]}：\n${value}\n\n`;
+            });
+            
+            output += '\n';
+        }
+        
+        // テキストファイルとしてダウンロード
+        const blob = new Blob([output], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-
-        // ファイル名を会社名＋日付（もし会社名が入力されていれば）にする例
-        const company = (document.getElementById('basic-1')?.value || '').trim();
-        const yyyy = new Date().toISOString().slice(0,10); // YYYY-MM-DD
-        a.download = (company ? `${company}_` : '') + `Webサイト制作ヒアリングシート_${yyyy}.txt`;
-
+        a.download = `Webサイト制作ヒアリングシート_${new Date().toISOString().split('T')[0]}.txt`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     }
 
-    // ボタンにイベントを付与（inline onclick を消してもOK）
-    const exportBtn = document.querySelector('.export-btn');
-    if (exportBtn) {
-        exportBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            exportData();
-        });
-    }
-
-    // もし他スクリプトが window.exportData() を呼ぶ可能性があるならグローバルにもしておく
+    // ==== グローバルスコープに登録（onclick対応） ====
     window.exportData = exportData;
-});
 </script>
 
-</script>
 </body>
     </html>
 
